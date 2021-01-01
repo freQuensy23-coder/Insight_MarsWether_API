@@ -1,5 +1,8 @@
 import sqlite3
+import logging
+import time
 
+logger = logging.getLogger("db_logger")
 
 class DB:
     def __init__(self, file_name = "data.sqlite"):
@@ -7,9 +10,11 @@ class DB:
         self.connection = sqlite3.connect(database="data.sqlite")
         # TODO Logging
 
-    def add_new_day_info(self, info, day):
+    def add_new_day_info(self, info: str, day: int):
         cur = self.connection.cursor()
-        q = f"""INSERT into days_info (day, information) VALUES ({day}, '{info}')"""
+        info = info.replace("'", '"')
+        q = f"""INSERT into days_info (day, information, creation_time) VALUES ({day}, '{info}, {time.time()}')"""
+        logger.debug(f"Add new day info. q = {q}`")
         cur.execute(q)
         self.connection.commit()
 

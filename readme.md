@@ -20,7 +20,7 @@ _\* Sol - mars's equivalent of Eath day. It is approximately 24 hours, 39 minute
 Insight mission has official [API](https://api.nasa.gov/). But there are problems that you will face using it:
  - You can get data only for six last sols - it is the main problem
  - You have only 500 requests per hour per one API key for all nasa's services
- - Nasa returns data in very ncomfortable format
+ - Nasa returns data in very uncomfortable format
  
 #### My solution of these problems
 I am going to create my own API. It will get data from nasa server, save it to MySQL. Other people will be able to access this data through the API. 

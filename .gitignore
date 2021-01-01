@@ -62,3 +62,6 @@ staticfiles
 
 #Old files
 /Insight_MarsWether_API
+
+# Data bases
+*.sqlite
